@@ -42,6 +42,9 @@ calc-kabanda = "calc_toolkit.terminal:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/calc_toolkit"]
 
+[tool.hatch.build.targets.sdist]
+exclude = ["kabanda-cli", "dist", "build"]
+
 [dependency-groups]
 dev = ["pytest>=7.0"]
 

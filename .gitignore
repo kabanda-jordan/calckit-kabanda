@@ -9,3 +9,7 @@ venv/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Separate package that happens to live in this directory. It is its own
+# project and must not be committed or packaged into calckit-kabanda.
+kabanda-cli/

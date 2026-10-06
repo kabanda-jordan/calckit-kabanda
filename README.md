@@ -4,6 +4,14 @@ Arithmetic and statistics helpers for Python, plus a `calckit-kabanda` command l
 
 ## Install
 
+From GitHub (no PyPI account needed, works immediately):
+
+```powershell
+pip install git+https://github.com/kabanda-jordan/calckit-kabanda.git
+```
+
+From PyPI, once published:
+
 ```powershell
 pip install calckit-kabanda
 ```

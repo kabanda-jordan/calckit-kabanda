@@ -43,8 +43,29 @@ Expressions are parsed by a hand-written recursive-descent parser, never
 Ctrl+C or `q` at any prompt backs out. No dependencies beyond the standard
 library.
 
-If the command is not found on your machine, `python -m calc_toolkit` opens the
-same menu, and `python -m calc_toolkit add 1 2 3` runs the one-shot form.
+### If Windows blocks the launcher
+
+Some managed Windows machines run a Device Guard / Application Control policy
+that blocks pip's generated console launchers, so `calc-kabanda` fails with
+"was blocked by your organization's Device Guard policy" or "Application
+Control policy has blocked this file". The package is fine; only the small
+launcher is blocked.
+
+Invoke the module directly instead. It is always available:
+
+```powershell
+python -m calc_toolkit
+python -m calc_toolkit add 1 2 3
+```
+
+For a bare `calc-kabanda` command, add a function to your PowerShell profile
+(`notepad $PROFILE`):
+
+```powershell
+function calc-kabanda { python -m calc_toolkit @args }
+```
+
+Opening the menu works from cmd as well via `python -m calc_toolkit`.
 
 ## Install
 

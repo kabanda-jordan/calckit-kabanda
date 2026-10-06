@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "calckit-kabanda"
-version = "0.1.0"
+version = "0.2.0"
 description = "Arithmetic and statistics helpers: add, subtract, multiply, divide, mean, median, mode and more."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -28,6 +28,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Typing :: Typed",
 ]
+dependencies = ["flask>=3.0"]
 
 [project.urls]
 Homepage = "https://github.com/kabanda-jordan/calckit-kabanda"
@@ -37,6 +38,7 @@ Changelog = "https://github.com/kabanda-jordan/calckit-kabanda/blob/main/CHANGEL
 
 [project.scripts]
 calckit-kabanda = "calc_toolkit.cli:main"
+calc-kabanda = "calc_toolkit.webapp:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/calc_toolkit"]

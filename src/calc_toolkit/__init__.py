@@ -25,6 +25,7 @@ from .arithmetic import (
     subtract,
 )
 from .errors import CalcError, DivisionByZeroError, EmptySequenceError
+from .evaluate import evaluate
 from .statistics import (
     average,
     geometric_mean,
@@ -40,7 +41,7 @@ from .statistics import (
     variance,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     # arithmetic
@@ -56,6 +57,8 @@ __all__ = [
     "square_root",
     "logarithm",
     "factorial",
+    # expressions
+    "evaluate",
     # statistics
     "total",
     "mean",

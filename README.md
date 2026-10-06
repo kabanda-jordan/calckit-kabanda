@@ -2,6 +2,28 @@
 
 Arithmetic and statistics helpers for Python, plus a `calckit-kabanda` command line tool.
 
+## Calculator interface
+
+`calc-kabanda` starts a local web server and opens a clickable calculator in
+your browser, with a full button pad, keyboard support, and a statistics panel.
+
+```powershell
+calc-kabanda
+```
+
+It prints a `http://127.0.0.1:5000` address and opens it automatically. Press
+Ctrl+C to stop. Nothing leaves your machine.
+
+If the command is not found, run `python -m calc_toolkit.webapp` instead.
+
+The display accepts expressions using `+ - * / // % **`, parentheses, and
+functions: `sqrt`, `root`, `abs`, `factorial`, `log`, `ln`, `floor`, `ceil`,
+`round`, `exp`, `sin`, `cos`, `tan`, `min`, `max`, `pow`.
+
+Expressions are parsed by a hand-written recursive-descent parser, not
+`eval()`, so nothing outside that list can execute. Handing the server
+`__import__('os').system('...')` returns an error instead of running it.
+
 ## Install
 
 From GitHub (no PyPI account needed, works immediately):
@@ -40,6 +62,19 @@ divide(10, 4)           # 2.5
 mean(2, 4, 6)           # 4.0  (same as average)
 median(1, 3, 2)         # 2.0
 mode(1, 2, 2, 3)        # 2.0
+```
+
+### Expressions
+
+`evaluate` parses a string safely, with no use of `eval`:
+
+```python
+from calc_toolkit import evaluate
+
+evaluate("2 + 3 * sqrt(16)")   # 14.0
+evaluate("(10 + 5) / 3")        # 5.0
+evaluate("2 ** 3 ** 2")         # 512.0  (right associative)
+evaluate("factorial(5) + 1")    # 121.0
 ```
 
 ### Arithmetic
